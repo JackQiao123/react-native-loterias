@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { Text as ReactText } from 'react-native';
+import { Text as ReactText, View } from 'react-native';
 import { BarChart, XAxis, YAxis, Grid } from 'react-native-svg-charts';
-import { View } from 'react-native';
 
 export default class Bar extends Component {
     
