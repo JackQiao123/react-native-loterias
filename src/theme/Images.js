@@ -2,7 +2,6 @@ const images = {
   splash: require('../../assets/images/splash.png'),
   logo: require('../../assets/images/logo.png'),
 
-  icon_logo: require('../../assets/images/icon_logo.png'),
   icon_calendar: require('../../assets/images/icon_calendar.png'),
   icon_cold: require('../../assets/images/icon_cold.png'),
   icon_graph: require('../../assets/images/icon_graph.png'),
