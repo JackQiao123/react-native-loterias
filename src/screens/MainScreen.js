@@ -131,7 +131,7 @@ class MainScreen extends Component {
     if (!this.unmounted) {
       if (ini) {
         const menuListData = AppHelper.getMenuList(ini);
-        // this.drawerContent.updateDataById(menuListData);
+        this.drawerContent.updateDataById(menuListData);
         this.drawerContent.selectNode(this.drawerContent.getSelectedNode(), { trigger: false, toggle: false });
       }
       this.setState({ loadingRefreshIni: false });
