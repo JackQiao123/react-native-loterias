@@ -130,7 +130,7 @@ class CompanyScreen extends Component {
         {
           data ? (
             <View>
-              <ScoreCard data={data} mode={item.data.mode} />
+              <ScoreCard type="company" data={data} mode={item.data.mode} />
             </View>
           ) : null
         }

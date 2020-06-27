@@ -34,7 +34,7 @@ const styles = {
 
 class ScoreCard extends Component {
   render() {
-    const { mode, data } = this.props;
+    const { type, mode, data } = this.props;
     const isRecentlyUpdated = AppHelper.isRecentlyUpdated(data.date);
 
     let scoreView = null;
@@ -54,9 +54,20 @@ class ScoreCard extends Component {
         {scoreView}
         
         <View style={[styles.scoreCardDateContainer]}>
-          <View style={[styles.scoreCardDate, { backgroundColor: isRecentlyUpdated ? Colors.scoreCardDateBackgroundHighlight : Colors.scoreCardDateBackground }]}>
-            <Text style={styles.scoreCardDateText}>{data.date}</Text>
-          </View>
+          {
+            type == 'company' && (
+              <View style={[styles.scoreCardDate]}>
+                <Text style={{color: 'grey'}}>{data.date}</Text>
+              </View>
+            )
+          }
+          {
+            type == 'game' && (
+              <View style={[styles.scoreCardDate, { backgroundColor: isRecentlyUpdated ? Colors.scoreCardDateBackgroundHighlight : Colors.scoreCardDateBackground }]}>
+                <Text style={styles.scoreCardDateText}>{data.date}</Text>
+              </View>
+            )
+          }
           {
             data.delay ? (
               <View style={[styles.scoreCardDate, { backgroundColor: Colors.scoreCardDateBackgroundHighlight }]}>

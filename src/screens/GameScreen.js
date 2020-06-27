@@ -93,7 +93,7 @@ class GameScreen extends Component {
         {/* ScoreCard */}
         {
           loading ? CommonWidget.renderSecondaryActivityIndicator() : (
-            result && result.score ? <ScoreCard mode={menu.data.mode} data={result} /> : null
+            result && result.score ? <ScoreCard type="game" mode={menu.data.mode} data={result} /> : null
           )
         }
         <View style={Styles.sectionContainer}>
