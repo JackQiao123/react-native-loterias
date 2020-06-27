@@ -87,7 +87,7 @@ const styles = {
     color: Colors.drawerTextHighlight
   },
   drawerItemTitle: {
-    fontSize: Fonts.size.default
+    fontSize: Fonts.size.h6
   },
   drawerItemDescription: {
     flexDirection: 'row',

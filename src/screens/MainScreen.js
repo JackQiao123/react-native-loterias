@@ -225,16 +225,6 @@ class MainScreen extends Component {
         {node.icon ? <Image source={node.icon} style={[Styles.drawerItemIcon]} resizeMode="contain" /> : null}
         <View style={[Styles.drawerItemContent]}>
           <Text style={[Styles.drawerItemTitle, highlight ? Styles.drawerItemTextHighlight : Styles.drawerItemText]}>{node.text}</Text>
-          {
-            (node.menuType === MENU_TYPE.GAME || node.menuType === MENU_TYPE.COMPANY) ? (
-              <View style={Styles.drawerItemDescription}>
-                {renderRecentlyUpdated}
-                <Text style={[highlight ? Styles.drawerItemDescriptionTextHighlight : Styles.drawerItemDescriptionText]}>
-                  {node.data.updated_at}
-                </Text>
-              </View>
-            ) : null
-          }
         </View>
         <Icon
           style={[Styles.drawerItemCollapsable, highlight ? Styles.drawerItemTextHighlight : Styles.drawerItemText]}

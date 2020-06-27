@@ -11,6 +11,8 @@ const styles = {
     backgroundColor: Colors.scoreCardBackground,
     borderColor: Colors.scoreCardBorder,
     borderBottomWidth: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     padding: Metrics.paddingDefault
   },
   scoreCardDateContainer: {
@@ -18,9 +20,11 @@ const styles = {
     marginBottom: Metrics.marginDefault * 0.7
   },
   scoreCardDate: {
+    borderRadius: Metrics.paddingDefault * 2,
     marginRight: Metrics.marginDefault,
+    marginTop: 4,
     paddingHorizontal: Metrics.paddingDefault,
-    borderRadius: Metrics.paddingDefault
+    paddingVertical: 4
   },
   scoreCardDateText: {
     color: Colors.scoreCardDateText,
@@ -47,6 +51,8 @@ class ScoreCard extends Component {
     }
     return (
       <View style={styles.scoreCard}>
+        {scoreView}
+        
         <View style={[styles.scoreCardDateContainer]}>
           <View style={[styles.scoreCardDate, { backgroundColor: isRecentlyUpdated ? Colors.scoreCardDateBackgroundHighlight : Colors.scoreCardDateBackground }]}>
             <Text style={styles.scoreCardDateText}>{data.date}</Text>
@@ -66,7 +72,6 @@ class ScoreCard extends Component {
             ) : null
           }
         </View>
-        {scoreView}
       </View>
     );
   }

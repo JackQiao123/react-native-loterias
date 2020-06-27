@@ -50,18 +50,19 @@ const styles = {
   },
   menuItemTitle: {
     color: Colors.menuItemText,
-    fontSize: Fonts.size.h6
+    fontSize: Fonts.size.h5
   },
   menuItemTitleHighlight: {
     color: Colors.menuItemTextHighlight
   },
   menuItemDescription: {
     flexDirection: 'row',
-    alignItems: 'center'
+    alignItems: 'center',
+    marginRight: 10
   },
   menuItemDescriptionText: {
     color: Colors.menuItemTextMuted,
-    fontSize: Fonts.size.small
+    fontSize: Fonts.size.default
   },
   menuItemDescriptionTextHilight: {
     color: Colors.menuItemTextMutedHighlight
@@ -118,19 +119,19 @@ class MenuItem extends Component {
               { menu.icon ? <Image style={styles.menuItemImage} source={menu.icon} resizeMode="contain" /> : null }
               <View style={styles.menuItemContent}>
                 <Text style={[styles.menuItemTitle, highlight ? styles.menuItemTitleHighlight : null]}>{menu.text}</Text>
-                {
-                  menu.menuType === MENU_TYPE.COMPANY || menu.menuType === MENU_TYPE.GAME ? (
-                    <View style={styles.menuItemDescription}>
-                      {renderRecentlyUpdated}
-                      <Text style={[styles.menuItemDescriptionText, highlight ? styles.menuItemDescriptionTextHighlight : null]}>{menu.data.updated_at}</Text>
-                    </View>
-                  ) : null
-                }
               </View>
             </View>
           ) : null
         }
         <View style={[styles.menuItemRight]}>
+          {
+            menu.menuType === MENU_TYPE.COMPANY ? (
+              <View style={styles.menuItemDescription}>
+                {renderRecentlyUpdated}
+                <Text style={[styles.menuItemDescriptionText, highlight ? styles.menuItemDescriptionTextHighlight : null]}>{menu.data.updated_at}</Text>
+              </View>
+            ) : null
+          }
           <Icon style={[styles.menuItemRightIcon, highlight ? styles.menuItemRightIconHilight : null]} name="angle-right" />
         </View>
       </TouchableOpacity>

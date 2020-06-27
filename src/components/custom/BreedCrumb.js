@@ -63,7 +63,7 @@ const styles = {
   },
   breedCrumbTitle: {
     color: Colors.breedCrumbText,
-    fontSize: Fonts.size.h6
+    fontSize: Fonts.size.h5
   },
   breedCrumbDescription: {
     flexDirection: 'row',
@@ -150,14 +150,6 @@ class BreedCrumb extends Component {
               { menu.icon && (breedCrumbCompanySame || menu.menuType === MENU_TYPE.GAME) ? <Image style={styles.breedCrumbImage} source={menu.icon} resizeMode="contain" /> : null }
               <View style={styles.breedCrumbContent}>
                 <Text style={styles.breedCrumbTitle}>{menu.text}</Text>
-                {
-                  breedCrumbCompanySame || menu.menuType === MENU_TYPE.GAME ? (
-                    <View style={styles.breedCrumbDescription}>
-                      {renderRecentlyUpdated}
-                      <Text style={styles.breedCrumbDescriptionText}>{menu.data.updated_at}</Text>
-                    </View>
-                  ) : null
-                }
               </View>
             </View>
           ) : null
