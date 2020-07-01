@@ -13,8 +13,8 @@ import CONFIG from '../../config';
 const styles = {
   navigationBar: {
     backgroundColor: Colors.navigationBackground,
-    height: Metrics.navigationBarHeight,
-    paddingTop: Metrics.statusBarHeight,
+    height: Metrics.navigationBarHeight * 1.2,
+    paddingTop: Metrics.statusBarHeight * 1.5,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -44,17 +44,18 @@ const styles = {
     alignItems: 'center',
     width: '100%',
     marginLeft: -Metrics.marginDefault,
-    paddingTop: Metrics.statusBarHeight,
+    paddingTop: Metrics.statusBarHeight * 1.5,
     flexDirection: 'row'
   },
   navigationImage: {
-    height: Metrics.navigationBarHeight - (Metrics.statusBarHeight / 3),
-    width: (Metrics.navigationBarHeight - (Metrics.statusBarHeight / 3)) * CONFIG.VIEW_OPTIONS.LAYOUTS.LOGO_ASPECT_RATIO,
+    height: Metrics.navigationBarHeight - Metrics.statusBarHeight / 2,
+    width: (Metrics.navigationBarHeight - Metrics.statusBarHeight / 2) * CONFIG.VIEW_OPTIONS.LAYOUTS.LOGO_ASPECT_RATIO,
     marginRight: Metrics.marginDefault
   },
   navigationImageSmall: {
-    height: Metrics.navigationBarHeight - Metrics.statusBarHeight - Metrics.paddingDefault,
-    width: (Metrics.navigationBarHeight - Metrics.statusBarHeight - Metrics.paddingDefault) * CONFIG.VIEW_OPTIONS.LAYOUTS.LOGO_ASPECT_RATIO
+    height: Metrics.navigationBarHeight - Metrics.statusBarHeight / 2 - Metrics.paddingDefault,
+    width: (Metrics.navigationBarHeight - Metrics.statusBarHeight / 2 - Metrics.paddingDefault) 
+            * CONFIG.VIEW_OPTIONS.LAYOUTS.LOGO_ASPECT_RATIO
   },
   navigationContent: {
 
