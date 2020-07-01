@@ -34,7 +34,7 @@ const styles = {
 
 class ScoreCard extends Component {
   render() {
-    const { type, mode, data } = this.props;
+    const { type, mode, data, index } = this.props;
     const isRecentlyUpdated = AppHelper.isRecentlyUpdated(data.date);
 
     let scoreView = null;
@@ -44,9 +44,21 @@ class ScoreCard extends Component {
           CommonWidget.renderStandardNumbers(item, index, isRecentlyUpdated)
         ));
       } else {
-        scoreView = data.score.map((item, index) => (
-          CommonWidget.renderCircleNumbers(item, index, isRecentlyUpdated)
-        ));
+        if (type == 'game') {
+          if (index == 0) {
+            scoreView = data.score.map((item, index) => (
+              CommonWidget.renderTodayNumbers(item, index)
+            ));
+          } else {
+            scoreView = data.score.map((item, index) => (
+              CommonWidget.renderPrevNumbers(item, index)
+            ));
+          }
+        } else {
+          scoreView = data.score.map((item, index) => (
+            CommonWidget.renderCircleNumbers(item, index, isRecentlyUpdated)
+          ));
+        }
       }
     }
     return (
@@ -63,8 +75,8 @@ class ScoreCard extends Component {
           }
           {
             type == 'game' && (
-              <View style={[styles.scoreCardDate, { backgroundColor: isRecentlyUpdated ? Colors.scoreCardDateBackgroundHighlight : Colors.scoreCardDateBackground }]}>
-                <Text style={styles.scoreCardDateText}>{data.date}</Text>
+              <View style={[styles.scoreCardDate]}>
+                <Text style={{color: 'grey'}}>{data.date}</Text>
               </View>
             )
           }

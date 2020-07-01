@@ -174,6 +174,98 @@ const CommonWidget = {
             </View>
           )
     );
+  },
+
+  renderTodayNumbers(numbers, index, recentlyUpdated = false) {
+    return (
+      <View key={index} style={Styles.circleNumbers}>
+        {numbers.map((number, subindex) => (
+          this.renderTodayNumber(number, subindex, recentlyUpdated)
+        ))}
+      </View>
+    );
+  },
+
+  renderTodayNumber(number, index, recentlyUpdated = false) {
+    const str = number;
+    const res = str.replace('+', '').replace('=', '').replace('!', '').replace('?', '');
+    let color = 'gray';
+    let backgroundColor = '#d7dee3';
+
+    const questionIndex = number.indexOf('?');
+    return (
+      (!res || res.trim().length === 0) ? null
+        : (questionIndex === 0 || questionIndex === 1 || res.trim().length > 2)
+          ? (
+            <Text key={index} style={[Styles.standardNumber, { backgroundColor, color }]}>{res}</Text>
+          ) : (
+            <View key={index} style={[Styles.circleNumber, { backgroundColor }]}>
+              <Text style={[Styles.circleNumberText, { color }]}>{res}</Text>
+            </View>
+          )
+    );
+  },
+
+  renderTodayNumbers(numbers, index) {
+    return (
+      <View key={index} style={Styles.circleNumbers}>
+        {numbers.map((number, subindex) => (
+          this.renderTodayNumber(number, subindex)
+        ))}
+      </View>
+    );
+  },
+
+  renderTodayNumber(number, index) {
+    const str = number;
+    const res = str.replace('+', '').replace('=', '').replace('!', '').replace('?', '');
+    let color = 'white';
+    let backgroundColor = '#089000';
+
+    const questionIndex = number.indexOf('?');
+    return (
+      (!res || res.trim().length === 0) ? null
+        : (questionIndex === 0 || questionIndex === 1 || res.trim().length > 2)
+          ? (
+            <Text key={index} style={[Styles.standardNumber, { backgroundColor, color }]}>{res}</Text>
+          ) : (
+            <View key={index} style={[Styles.circleNumber, { backgroundColor }]}>
+              <Text style={[Styles.circleNumberText, { color }]}>{res}</Text>
+            </View>
+          )
+    );
+  },
+
+  renderPrevNumbers(numbers, index) {
+    return (
+      <View key={index} style={Styles.circleNumbers}>
+        {numbers.map((number, subindex) => (
+          this.renderPrevNumber(number, subindex)
+        ))}
+      </View>
+    );
+  },
+
+  renderPrevNumber(number, index) {
+    const str = number;
+    const res = str.replace('+', '').replace('=', '').replace('!', '').replace('?', '');
+    let color = 'gray';
+    let backgroundColor = 'white';
+    let borderColor = '#a9a9a9';
+    let borderWidth = 1;
+
+    const questionIndex = number.indexOf('?');
+    return (
+      (!res || res.trim().length === 0) ? null
+        : (questionIndex === 0 || questionIndex === 1 || res.trim().length > 2)
+          ? (
+            <Text key={index} style={[Styles.standardNumber, { backgroundColor, color }]}>{res}</Text>
+          ) : (
+            <View key={index} style={[Styles.circleNumber, { backgroundColor, borderColor, borderWidth }]}>
+              <Text style={[Styles.circleNumberText, { color }]}>{res}</Text>
+            </View>
+          )
+    );
   }
 };
 

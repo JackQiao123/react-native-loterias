@@ -94,8 +94,8 @@ class GameScreen extends Component {
         {
           loading ? CommonWidget.renderSecondaryActivityIndicator() : (
             result && result.sessions ? (
-              result.sessions.map((item) => (
-                <ScoreCard type="game" mode={menu.data.mode} data={item} />
+              result.sessions.map((item, index) => (
+                <ScoreCard type="game" mode={menu.data.mode} data={item} index={index} />
               ))
             ) : null
           )
