@@ -182,6 +182,7 @@ const styles = {
   standardNumber: {
     marginRight: Metrics.marginDefault,
     padding: Metrics.paddingDefault / 2,
+    paddingTop: Metrics.paddingDefault,
     margin: Metrics.marginDefault * 0.3
   },
   circleNumbers: {
@@ -192,9 +193,9 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'center',
     margin: Metrics.marginDefault * 0.3,
-    width: Fonts.size.default * 2,
-    height: Fonts.size.default * 2,
-    borderRadius: Fonts.size.default
+    width: Fonts.size.default * 2.4,
+    height: Fonts.size.default * 2.4,
+    borderRadius: Fonts.size.default * 1.2
   },
   circleNumberText: {
     fontSize: Fonts.size.default
