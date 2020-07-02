@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { AppState, ScrollView, View, Text } from 'react-native';
+import { AppState, ScrollView, View } from 'react-native';
 import moment from 'moment';
 
 import Api from '../apis';
@@ -95,7 +95,7 @@ class GameScreen extends Component {
           loading ? CommonWidget.renderSecondaryActivityIndicator() : (
             result && result.sessions ? (
               result.sessions.map((item, index) => (
-                <ScoreCard type="game" mode={menu.data.mode} data={item} index={index} />
+                <ScoreCard key={index} type="game" mode={menu.data.mode} data={item} />
               ))
             ) : null
           )

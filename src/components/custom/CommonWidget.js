@@ -143,8 +143,13 @@ const CommonWidget = {
   renderCircleNumber(number, index, recentlyUpdated = false) {
     const str = number;
     const res = str.replace('+', '').replace('=', '').replace('!', '').replace('?', '');
+    
     let color;
     let backgroundColor;
+    let borderColor = '';
+    let borderWidth = 0;
+    let opacity = 0.8;
+
     if (number.indexOf('=') === 0) {
       color = Colors.matchBallText;
       backgroundColor = Colors.matchBallBackground;
@@ -158,8 +163,11 @@ const CommonWidget = {
       color = Colors.todayBallText;
       backgroundColor = Colors.todayBallBackground;
     } else {
-      color = Colors.ballText;
-      backgroundColor = Colors.ballBackground;
+      color = 'gray';
+      backgroundColor = 'white';
+      borderColor = '#a9a9a9';
+      borderWidth = 1;
+      opacity = 1;
     }
 
     const questionIndex = number.indexOf('?');
@@ -167,9 +175,9 @@ const CommonWidget = {
       (!res || res.trim().length === 0) ? null
         : (questionIndex === 0 || questionIndex === 1 || res.trim().length > 2)
           ? (
-            <Text key={index} style={[Styles.standardNumber, { backgroundColor, color }]}>{res}</Text>
+            <Text key={index} style={[Styles.standardNumber, { backgroundColor, borderColor, borderWidth, color }]}>{res}</Text>
           ) : (
-            <View key={index} style={[Styles.circleNumber, { backgroundColor }]}>
+            <View key={index} style={[Styles.circleNumber, { backgroundColor, borderColor, borderWidth, opacity }]}>
               <Text style={[Styles.circleNumberText, { color }]}>{res}</Text>
             </View>
           )
@@ -186,11 +194,29 @@ const CommonWidget = {
     );
   },
 
-  renderTodayNumber(number, index, recentlyUpdated = false) {
+  renderTodayNumber(number, index, recentlyUpdated) {
     const str = number;
     const res = str.replace('+', '').replace('=', '').replace('!', '').replace('?', '');
-    let color = 'gray';
-    let backgroundColor = '#d7dee3';
+
+    let color;
+    let backgroundColor;
+
+    if (number.indexOf('=') === 0) {
+      color = Colors.matchBallText;
+      backgroundColor = Colors.matchBallBackground;
+    } else if (number.indexOf('!') === 0) {
+      color = Colors.wrongBallText;
+      backgroundColor = Colors.wrongBallBackground;
+    } else if (number.indexOf('+') === 0) {
+      color = Colors.bonusBallText;
+      backgroundColor = Colors.bonusBallBackground;
+    } else if (recentlyUpdated) {
+      color = Colors.todayBallText;
+      backgroundColor = Colors.todayBallBackground;
+    } else {
+      color = 'white';
+      backgroundColor = '#089000';
+    }
 
     const questionIndex = number.indexOf('?');
     return (
@@ -200,68 +226,6 @@ const CommonWidget = {
             <Text key={index} style={[Styles.standardNumber, { backgroundColor, color }]}>{res}</Text>
           ) : (
             <View key={index} style={[Styles.circleNumber, { backgroundColor }]}>
-              <Text style={[Styles.circleNumberText, { color }]}>{res}</Text>
-            </View>
-          )
-    );
-  },
-
-  renderTodayNumbers(numbers, index) {
-    return (
-      <View key={index} style={Styles.circleNumbers}>
-        {numbers.map((number, subindex) => (
-          this.renderTodayNumber(number, subindex)
-        ))}
-      </View>
-    );
-  },
-
-  renderTodayNumber(number, index) {
-    const str = number;
-    const res = str.replace('+', '').replace('=', '').replace('!', '').replace('?', '');
-    let color = 'white';
-    let backgroundColor = '#089000';
-
-    const questionIndex = number.indexOf('?');
-    return (
-      (!res || res.trim().length === 0) ? null
-        : (questionIndex === 0 || questionIndex === 1 || res.trim().length > 2)
-          ? (
-            <Text key={index} style={[Styles.standardNumber, { backgroundColor, color }]}>{res}</Text>
-          ) : (
-            <View key={index} style={[Styles.circleNumber, { backgroundColor }]}>
-              <Text style={[Styles.circleNumberText, { color }]}>{res}</Text>
-            </View>
-          )
-    );
-  },
-
-  renderPrevNumbers(numbers, index) {
-    return (
-      <View key={index} style={Styles.circleNumbers}>
-        {numbers.map((number, subindex) => (
-          this.renderPrevNumber(number, subindex)
-        ))}
-      </View>
-    );
-  },
-
-  renderPrevNumber(number, index) {
-    const str = number;
-    const res = str.replace('+', '').replace('=', '').replace('!', '').replace('?', '');
-    let color = 'gray';
-    let backgroundColor = 'white';
-    let borderColor = '#a9a9a9';
-    let borderWidth = 1;
-
-    const questionIndex = number.indexOf('?');
-    return (
-      (!res || res.trim().length === 0) ? null
-        : (questionIndex === 0 || questionIndex === 1 || res.trim().length > 2)
-          ? (
-            <Text key={index} style={[Styles.standardNumber, { backgroundColor, color }]}>{res}</Text>
-          ) : (
-            <View key={index} style={[Styles.circleNumber, { backgroundColor, borderColor, borderWidth }]}>
               <Text style={[Styles.circleNumberText, { color }]}>{res}</Text>
             </View>
           )

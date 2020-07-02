@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, Dimensions } from 'react-native';
 import I18n from 'react-native-i18n';
+import moment from 'moment';
 
 import { Colors, Fonts, Metrics } from '../../theme';
 import AppHelper from '../../helpers/AppHelper';
@@ -34,8 +35,13 @@ const styles = {
 
 class ScoreCard extends Component {
   render() {
-    const { type, mode, data, index } = this.props;
+    const { type, mode, data } = this.props;
     const isRecentlyUpdated = AppHelper.isRecentlyUpdated(data.date);
+
+    let d = new Date();
+    let utc = d.getTime();
+    let date = new Date(utc - (3600000 * 4));
+    let today = moment(date).format('DD-MM-YYYY');
 
     let scoreView = null;
     if (data.score) {
@@ -44,16 +50,10 @@ class ScoreCard extends Component {
           CommonWidget.renderStandardNumbers(item, index, isRecentlyUpdated)
         ));
       } else {
-        if (type == 'game') {
-          if (index == 0) {
-            scoreView = data.score.map((item, index) => (
-              CommonWidget.renderTodayNumbers(item, index)
-            ));
-          } else {
-            scoreView = data.score.map((item, index) => (
-              CommonWidget.renderPrevNumbers(item, index)
-            ));
-          }
+        if (today == data.date) {
+          scoreView = data.score.map((item, index) => (
+            CommonWidget.renderTodayNumbers(item, index, isRecentlyUpdated)
+          ));
         } else {
           scoreView = data.score.map((item, index) => (
             CommonWidget.renderCircleNumbers(item, index, isRecentlyUpdated)
@@ -61,9 +61,12 @@ class ScoreCard extends Component {
         }
       }
     }
+
+    const screenWidth = Math.round(Dimensions.get('window').width);
+
     return (
       <View style={styles.scoreCard}>
-        {scoreView}
+        <View style={{width:screenWidth - 120}}>{scoreView}</View>
         
         <View style={[styles.scoreCardDateContainer]}>
           {
