@@ -162,13 +162,14 @@ const styles = {
   },
   tableItem: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'flex-start',
     backgroundColor: Colors.tableItemBackground
   },
   tableItemCell: {
+    flex: 1,
     paddingHorizontal: Metrics.paddingDefault / 2,
     paddingVertical: Metrics.paddingDefault * 0.3,
-    justifyContent: 'center'
+    justifyContent: 'flex-start'
   },
   tableItemCellText: {
     color: Colors.tableItemText,

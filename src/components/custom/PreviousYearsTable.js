@@ -79,14 +79,14 @@ class PreviousYearsTable extends Component {
         {
           section.content.map((item, subIndex) => (
             <View style={Styles.tableItem} key={subIndex}>
-              <View style={[Styles.tableItemCell, styles.tableCellImage]}>
+              {/* <View style={[Styles.tableItemCell, styles.tableCellImage]}>
                 <Image source={{ uri: item.game_logo }} style={styles.image} resize="cover" />
-              </View>
+              </View> */}
               <View style={[Styles.tableItemCell, styles.tableCellTitle]}>
-                <Text style={[Styles.tableItemCellText, Styles.textCenter]}>{item.game_title}</Text>
+                <Text style={[Styles.tableItemCellText]}>{item.game_title}</Text>
               </View>
               <View style={[Styles.tableItemCell, styles.tableCellDate]}>
-                <Text style={[Styles.tableItemCellText, Styles.textCenter]}>{item.date}</Text>
+                <Text style={[Styles.tableItemCellText]}>{item.date}</Text>
               </View>
               <View style={[Styles.tableItemCell, styles.tableCellNumbers]}>
                 {CommonWidget.renderCircleNumbers(item.score)}
