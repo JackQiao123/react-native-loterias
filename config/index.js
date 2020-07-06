@@ -2,10 +2,8 @@ import { Platform } from 'react-native';
 
 const config = {
   API_ENDPOINTS: {
-    MAIN: 'http://dev.loteriasdominicanas.com/mobile-api-new',
-    APP: 'http://dev.loteriasdominicanas.com/mobile-api-new'
-    // MAIN: 'https://loteriasdominicanas.com/mobile-api-new',
-    // APP: 'https://loteriasdominicanas.com/mobile-api-new'
+    MAIN: 'https://loteriasdominicanas.com/mobile-api-new',
+    APP: 'https://loteriasdominicanas.com/mobile-api-new'
   },
 
   // ADMOB
