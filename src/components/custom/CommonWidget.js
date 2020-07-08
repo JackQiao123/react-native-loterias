@@ -198,25 +198,8 @@ const CommonWidget = {
     const str = number;
     const res = str.replace('+', '').replace('=', '').replace('!', '').replace('?', '');
 
-    let color;
-    let backgroundColor;
-
-    if (number.indexOf('=') === 0) {
-      color = Colors.matchBallText;
-      backgroundColor = Colors.matchBallBackground;
-    } else if (number.indexOf('!') === 0) {
-      color = Colors.wrongBallText;
-      backgroundColor = Colors.wrongBallBackground;
-    } else if (number.indexOf('+') === 0) {
-      color = Colors.bonusBallText;
-      backgroundColor = Colors.bonusBallBackground;
-    } else if (recentlyUpdated) {
-      color = Colors.todayBallText;
-      backgroundColor = Colors.todayBallBackground;
-    } else {
-      color = 'white';
-      backgroundColor = '#089000';
-    }
+    let color = 'white';
+    let backgroundColor = '#089000';
 
     const questionIndex = number.indexOf('?');
     return (

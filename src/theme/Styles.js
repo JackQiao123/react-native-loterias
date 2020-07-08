@@ -182,7 +182,7 @@ const styles = {
   standardNumber: {
     marginRight: Metrics.marginDefault,
     padding: Metrics.paddingDefault / 2,
-    paddingTop: Metrics.paddingDefault,
+    paddingTop: Metrics.paddingDefault * 0.7,
     margin: Metrics.marginDefault * 0.3
   },
   circleNumbers: {
