@@ -6,6 +6,7 @@ import moment from 'moment';
 import { Colors, Fonts, Metrics } from '../../theme';
 import AppHelper from '../../helpers/AppHelper';
 import CommonWidget from './CommonWidget';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const styles = {
   scoreCard: {
@@ -30,6 +31,20 @@ const styles = {
   scoreCardDateText: {
     color: Colors.scoreCardDateText,
     fontSize: Fonts.size.default
+  },
+  scoreCardDelay: {
+    flexDirection: 'row',
+    paddingTop: 4
+  },
+  scoreCardDelayIcon: {
+    color: 'grey',
+    fontSize: Fonts.size.h5,
+    marginHorizontal: Metrics.marginDefault,
+    marginTop: Metrics.marginDefault * 0.4
+  },
+  scoreCardDelayText: {
+    color: 'grey',
+    fontSize: Fonts.size.h5
   }
 };
 
@@ -66,29 +81,25 @@ class ScoreCard extends Component {
 
     return (
       <View style={styles.scoreCard}>
-        <View style={{width:screenWidth - 120}}>{scoreView}</View>
+        {
+          (data.delay && data.date != today) || !scoreView ? (
+            <View style={styles.scoreCardDelay}>
+              <Icon style={styles.scoreCardDelayIcon} name="clock-o" />
+              <Text style={styles.scoreCardDelayText}>{I18n.t('delayed')}</Text>
+              <Text style={styles.scoreCardDelayText}>{data.delay_reason ? ': ' + data.delay_reason : ''}</Text>
+            </View>
+          ) : (
+            <View style={{width:screenWidth - 120}}>{scoreView}</View>
+          )
+        }
         
         <View style={[styles.scoreCardDateContainer]}>
           {
-            type == 'company' && (
+            (type == 'company' || type == 'game') && (
               <View style={[styles.scoreCardDate]}>
-                <Text style={{color: 'grey'}}>{data.date}</Text>
+                <Text style={{color: 'grey'}}>{data.delay ? today : data.date}</Text>
               </View>
             )
-          }
-          {
-            type == 'game' && (
-              <View style={[styles.scoreCardDate]}>
-                <Text style={{color: 'grey'}}>{data.date}</Text>
-              </View>
-            )
-          }
-          {
-            data.delay ? (
-              <View style={[styles.scoreCardDate, { backgroundColor: Colors.scoreCardDateBackgroundHighlight }]}>
-                <Text style={styles.scoreCardDateText}>{I18n.t('delayed')}</Text>
-              </View>
-            ) : null
           }
           {
             data.no_game_today ? (

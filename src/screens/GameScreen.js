@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { AppState, ScrollView, View } from 'react-native';
 import moment from 'moment';
 
@@ -82,6 +82,21 @@ class GameScreen extends Component {
   render() {
     const { menu } = this.props;
     const { loading, result } = this.state;
+
+    let d = new Date();
+    let utc = d.getTime();
+    let date = new Date(utc - (3600000 * 4));
+    let today = moment(date).format('DD-MM-YYYY');
+
+    let delayData = [];
+    if (result && result.delay) {
+      delayData = {
+        'delay': true,
+        'delay_reason': result.delay_reason,
+        'date': today
+      }
+    }
+
     return (
       <ScrollView style={Styles.container}>
         {/* Breed Crumb */}
@@ -95,9 +110,23 @@ class GameScreen extends Component {
         {
           loading ? CommonWidget.renderSecondaryActivityIndicator() : (
             result && result.sessions ? (
-              result.sessions.map((item, index) => (
-                <ScoreCard key={index} type="game" mode={menu.data.mode} data={item} />
-              ))
+              result.delay && result.sessions[0].date != today ? (
+                <Fragment>
+                  <ScoreCard type="game" mode={menu.data.mode} data={delayData} />
+                  {
+                    result.sessions.map((item, index) => (
+                      index < result.sessions.length - 1 && (
+                        <ScoreCard key={index} type="game" mode={menu.data.mode} data={item} />
+                      )
+                    ))
+                  }
+                </Fragment>
+              ) : (
+                result.sessions.map((item, index) => (
+                  <ScoreCard key={index} type="game" mode={menu.data.mode} data={item} />
+                ))
+              )
+              
             ) : null
           )
         }
