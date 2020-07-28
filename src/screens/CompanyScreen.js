@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-  AppState, FlatList, ScrollView, View
+  AppState, FlatList, ScrollView, View, RefreshControl
 } from 'react-native';
 import moment from 'moment';
 
@@ -142,7 +142,12 @@ class CompanyScreen extends Component {
     const { menu } = this.props;
     const { loading, menuList } = this.state;
     return (
-      <ScrollView style={Styles.container}>
+      <ScrollView
+        style={Styles.container}
+        refreshControl={
+          <RefreshControl refreshing={loading} onRefresh={this.onRefresh.bind(this)} />
+        }
+      >
         {/* Breed Crumb */}
         <BreedCrumb
           menu={menu}
@@ -153,9 +158,7 @@ class CompanyScreen extends Component {
         {/* Main Menus */}
         {
           (menuList && menuList.length > 0) ? (
-            loading ? (
-              CommonWidget.renderSecondaryActivityIndicator()
-            ) : (
+            !loading && (
               <FlatList
                 data={menuList}
                 keyExtractor={this._keyExtractor.bind(this)}

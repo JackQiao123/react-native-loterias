@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { AppState, ScrollView, View } from 'react-native';
+import { AppState, ScrollView, View, RefreshControl } from 'react-native';
 import moment from 'moment';
 
 import Api from '../apis';
@@ -98,7 +98,12 @@ class GameScreen extends Component {
     }
 
     return (
-      <ScrollView style={Styles.container}>
+      <ScrollView
+        style={Styles.container}
+        refreshControl={
+          <RefreshControl refreshing={loading} onRefresh={this.onRefresh.bind(this)} />
+        }
+      >
         {/* Breed Crumb */}
         <BreedCrumb
           menu={menu}
@@ -108,7 +113,7 @@ class GameScreen extends Component {
         />
         {/* ScoreCard */}
         {
-          loading ? CommonWidget.renderSecondaryActivityIndicator() : (
+          !loading && (
             result && result.sessions ? (
               result.delay && result.sessions[0].date != today ? (
                 <Fragment>
