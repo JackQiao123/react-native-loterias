@@ -198,17 +198,39 @@ const CommonWidget = {
     const str = number;
     const res = str.replace('+', '').replace('=', '').replace('!', '').replace('?', '');
 
-    let color = 'white';
-    let backgroundColor = '#089000';
+    let color;
+    let backgroundColor;
+    let borderColor = '';
+    let borderWidth = 0;
+    let opacity = 1;
+
+    if (number.indexOf('=') === 0) {
+      color = Colors.matchBallText;
+      backgroundColor = Colors.matchBallBackground;
+    } else if (number.indexOf('!') === 0) {
+      color = Colors.wrongBallText;
+      backgroundColor = Colors.wrongBallBackground;
+    } else if (number.indexOf('+') === 0) {
+      color = Colors.bonusBallText;
+      backgroundColor = Colors.bonusBallBackground;
+    } else if (recentlyUpdated) {
+      color = 'white';
+      backgroundColor = '#089000';
+    } else {
+      color = 'gray';
+      backgroundColor = 'white';
+      borderColor = '#a9a9a9';
+      borderWidth = 1;
+    }
 
     const questionIndex = number.indexOf('?');
     return (
       (!res || res.trim().length === 0) ? null
         : (questionIndex === 0 || questionIndex === 1 || res.trim().length > 2)
           ? (
-            <Text key={index} style={[Styles.standardNumber, { backgroundColor, color }]}>{res}</Text>
+            <Text key={index} style={[Styles.standardNumber, { backgroundColor, borderColor, borderWidth, color }]}>{res}</Text>
           ) : (
-            <View key={index} style={[Styles.circleNumber, { backgroundColor }]}>
+            <View key={index} style={[Styles.circleNumber, { backgroundColor, borderColor, borderWidth, opacity }]}>
               <Text style={[Styles.circleNumberText, { color }]}>{res}</Text>
             </View>
           )
