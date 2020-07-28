@@ -28,7 +28,7 @@ const config = {
   },
 
   VIEW_OPTIONS: {
-    THEME: 'blue',
+    THEME: 'blue1',
     INITIAL_MENU: {
       ID: 'home',
       OPTIONS: {
