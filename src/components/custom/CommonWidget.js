@@ -52,40 +52,6 @@ const CommonWidget = {
         type: 'oneByOne',
         duration: 200,
         fillTransition: 3
-      },
-      axisX: {
-        showAxis: true,
-        showLines: true,
-        showLabels: true,
-        showTicks: true,
-        zeroAxis: false,
-        orient: 'bottom',
-        gridColor: Colors.chartGrid,
-        color: Colors.chartGrid,
-        label: {
-          fontFamily: 'Arial',
-          fontSize: 10,
-          fontWeight: true,
-          fill: Colors.chartAxis,
-          marginLeft: -4,
-          rotate: -45
-        }
-      },
-      axisY: {
-        showAxis: true,
-        showLines: true,
-        showLabels: true,
-        showTicks: true,
-        zeroAxis: false,
-        orient: 'left',
-        gridColor: Colors.chartGrid,
-        color: Colors.chartGrid,
-        label: {
-          fontFamily: 'Arial',
-          fontSize: 10,
-          fontWeight: true,
-          fill: Colors.chartAxis
-        }
       }
     };
 

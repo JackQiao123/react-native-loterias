@@ -8,6 +8,8 @@ export default class Bar extends Component {
     const data = [];
     const xAxes = [];
 
+    var max = 0;
+
     const noDataMsg = this.props.noDataMessage || 'No data available';
 
     if (this.props.data === undefined) {
@@ -17,6 +19,10 @@ export default class Bar extends Component {
       for (var key in this.props.data) {
         if (i % 8 == 0) {
           xAxes.push(this.props.data[key][0].name);
+        }
+
+        if (max < this.props.data[key][0].v) {
+          max = this.props.data[key][0].v;
         }
 
         data.push(this.props.data[key][0].v);
@@ -32,6 +38,7 @@ export default class Bar extends Component {
         <YAxis
           data = {data}
           style = {{marginBottom: 20}}
+          numberOfTicks={max > 6 ? 6 : max}
           contentInset = {{ top: 10, bottom: 10 }}
           svg = {axesSvg}
         />
