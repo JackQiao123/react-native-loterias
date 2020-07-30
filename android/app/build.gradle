@@ -132,8 +132,8 @@ android {
         applicationId "com.loterias"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
+        versionCode 30
+        versionName "2.0.4"
     }
     splits {
         abi {
