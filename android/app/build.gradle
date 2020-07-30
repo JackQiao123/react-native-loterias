@@ -129,7 +129,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.loterias"
+        applicationId "kiskoo.s.r.l"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 30
