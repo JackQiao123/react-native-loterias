@@ -1,4 +1,4 @@
-package com.loterias;
+package kiskoo.s.r.l;
 
 import com.facebook.react.ReactActivity;
 

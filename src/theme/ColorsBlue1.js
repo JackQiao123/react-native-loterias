@@ -38,7 +38,7 @@ const colors = {
 
   // drawer colors
   drawerBackground: '#FFF',
-  drawerBackgroundHighlight: '#1F7BD2',
+  drawerBackgroundHighlight: '#004880',
   drawerShadow: '#AAA',
   drawerBorder: '#EAEAEA',
   drawerText: '#1A314D',
@@ -87,13 +87,13 @@ const colors = {
   todayBallText: '#FFF',
 
   bonusBallText: '#FFF',
-  bonusBallBackground: '#0d4880', // '#05bfec',
+  bonusBallBackground: '#0D4880', // '#05bfec',
 
   matchBallText: '#FFF',
   matchBallBackground: '#ED412D',
 
   wrongBallText: '#FFF',
-  wrongBallBackground: '#4285F4',
+  wrongBallBackground: '#0D4880',
 
   // table
   tableHeaderBackground: '#ECEFF1',
