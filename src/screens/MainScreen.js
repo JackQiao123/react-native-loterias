@@ -6,9 +6,9 @@ import {
 
 import Drawer from 'react-native-drawer';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { 
-  InterstitialAd, AdEventType, BannerAd, BannerAdSize 
-} from '@react-native-firebase/admob';
+// import { 
+//   InterstitialAd, AdEventType, BannerAd, BannerAdSize 
+// } from '@react-native-firebase/admob';
 
 import { increaseRewarded } from '../actions/global';
 import TreeView from '../components/general/TreeView';
@@ -182,21 +182,21 @@ class MainScreen extends Component {
   }
 
   requestInterstitial() {
-    this.interstitial = InterstitialAd.createForAdRequest(CONFIG.ADMOB.SECRETS.INTERSTITIAL, {
-      requestNonPersonalizedAdsOnly: true
-    });
+    // this.interstitial = InterstitialAd.createForAdRequest(CONFIG.ADMOB.SECRETS.INTERSTITIAL, {
+    //   requestNonPersonalizedAdsOnly: true
+    // });
   }
 
   showInterstitial() {
-    if (this.interstitial) {
-      this.interstitial.onAdEvent((type, error) => {
-        if (type === AdEventType.LOADED) {
-          this.interstitial.show();
-        }
-      });
+    // if (this.interstitial) {
+    //   this.interstitial.onAdEvent((type, error) => {
+    //     if (type === AdEventType.LOADED) {
+    //       this.interstitial.show();
+    //     }
+    //   });
   
-      this.interstitial.load();
-    }
+    //   this.interstitial.load();
+    // }
   }
 
   keyExtractor(item, index) {
@@ -352,13 +352,13 @@ class MainScreen extends Component {
           <View style={Styles.container}>
             {this.state.menuItem === null ? CommonWidget.renderActivityIndicator() : this.renderScreen()}
           </View>
-          <BannerAd
+          {/* <BannerAd
             unitId={CONFIG.ADMOB.SECRETS.BANNER}
             size={BannerAdSize.SMART_BANNER}
             requestOptions={{
               requestNonPersonalizedAdsOnly: true,
             }}
-          />
+          /> */}
         </Drawer>
       </View>
     );
