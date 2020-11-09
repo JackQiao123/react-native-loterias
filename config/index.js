@@ -11,8 +11,8 @@ const config = {
     REWARDED_MAX: 4,
     SECRETS: Platform.select({
       ios: {
-        BANNER: 'ca-app-pub-1196303242456869/1822774033',
-        INTERSTITIAL: 'ca-app-pub-1196303242456869/9595316835'
+        BANNER: 'ca-app-pub-1196303242456869/9695493719',
+        INTERSTITIAL: 'ca-app-pub-1196303242456869/3385715165'
       },
       android: {
         BANNER: 'ca-app-pub-1196303242456869/7869307636',

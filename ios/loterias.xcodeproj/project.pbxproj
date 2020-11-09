@@ -19,6 +19,7 @@
 		4C64523CDAC9913B441F436C /* libPods-loterias-loteriasTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B66A29C54581E16E78A410 /* libPods-loterias-loteriasTests.a */; };
 		CABF16509D9BE5BE6619EED6 /* libPods-loterias.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22C3CC5D6A7261DC4A3BD3BC /* libPods-loterias.a */; };
 		D9289C63D8D9691CACB90D23 /* libPods-loterias-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 13933750B5F0B3F2D74768DF /* libPods-loterias-tvOS.a */; };
+		DA90A3852559DF6F004EA7B3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA90A3842559DF6F004EA7B3 /* GoogleService-Info.plist */; };
 		E7CA383815524B84A50CD5C9 /* libPods-loterias-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B3FFCD3111100C038382469 /* libPods-loterias-tvOSTests.a */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +65,7 @@
 		9DE5D412C61F2C0C2F484CC8 /* Pods-loterias-loteriasTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-loterias-loteriasTests.debug.xcconfig"; path = "Target Support Files/Pods-loterias-loteriasTests/Pods-loterias-loteriasTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C317F4C25BF4C372EA42FC5C /* Pods-loterias-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-loterias-tvOS.release.xcconfig"; path = "Target Support Files/Pods-loterias-tvOS/Pods-loterias-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		C60D7490A44872DE36262FC2 /* Pods-loterias-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-loterias-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-loterias-tvOSTests/Pods-loterias-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		DA90A3842559DF6F004EA7B3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "loterias/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DAF66E0225356F730046D1BE /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
@@ -183,6 +185,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				DA90A3842559DF6F004EA7B3 /* GoogleService-Info.plist */,
 				13B07FAE1A68108700A75B9A /* loterias */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* loteriasTests */,
@@ -360,6 +363,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA90A3852559DF6F004EA7B3 /* GoogleService-Info.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 			);
