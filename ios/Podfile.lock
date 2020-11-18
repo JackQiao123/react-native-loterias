@@ -346,6 +346,8 @@ PODS:
     - React-cxxreact (= 0.62.2)
     - React-jsi (= 0.62.2)
     - ReactCommon/callinvoker (= 0.62.2)
+  - RNDateTimePicker (3.0.5):
+    - React-Core
   - RNExitApp (1.1.0):
     - React
   - RNFBAdMob (7.6.8):
@@ -417,6 +419,7 @@ DEPENDENCIES:
   - React-RCTVibration (from `../node_modules/react-native/Libraries/Vibration`)
   - ReactCommon/callinvoker (from `../node_modules/react-native/ReactCommon`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
+  - "RNDateTimePicker (from `../node_modules/@react-native-community/datetimepicker`)"
   - RNExitApp (from `../node_modules/react-native-exit-app`)
   - "RNFBAdMob (from `../node_modules/@react-native-firebase/admob`)"
   - "RNFBApp (from `../node_modules/@react-native-firebase/app`)"
@@ -505,6 +508,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/Libraries/Vibration"
   ReactCommon:
     :path: "../node_modules/react-native/ReactCommon"
+  RNDateTimePicker:
+    :path: "../node_modules/@react-native-community/datetimepicker"
   RNExitApp:
     :path: "../node_modules/react-native-exit-app"
   RNFBAdMob:
@@ -571,6 +576,7 @@ SPEC CHECKSUMS:
   React-RCTText: fae545b10cfdb3d247c36c56f61a94cfd6dba41d
   React-RCTVibration: 4356114dbcba4ce66991096e51a66e61eda51256
   ReactCommon: ed4e11d27609d571e7eee8b65548efc191116eb3
+  RNDateTimePicker: 3131bc214dd74d75dd7324343adf53ab2ea8ff72
   RNExitApp: c4e052df2568b43bec8a37c7cd61194d4cfee2c3
   RNFBAdMob: bf1552aebf7788f64f9dd83defd940b373a24624
   RNFBApp: 570b136767f588b7eef0ab918284e9fe364d0c3e
