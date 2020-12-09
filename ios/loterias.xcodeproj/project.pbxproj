@@ -841,9 +841,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = 6L8X35P4A6;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -853,7 +853,7 @@
 				INFOPLIST_FILE = loterias/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 7.0.6;
+				MARKETING_VERSION = 7.0.7;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -861,7 +861,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kiskoo.LotoDom;
 				PRODUCT_NAME = loterias;
-				PROVISIONING_PROFILE_SPECIFIER = "LotoDom-dev-profile";
+				PROVISIONING_PROFILE_SPECIFIER = "LotoDom-dist-profile";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -875,14 +875,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = 6L8X35P4A6;
 				INFOPLIST_FILE = loterias/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 7.0.6;
+				MARKETING_VERSION = 7.0.7;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -891,7 +891,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kiskoo.LotoDom;
 				PRODUCT_NAME = loterias;
-				PROVISIONING_PROFILE_SPECIFIER = "LotoDom-dev-profile";
+				PROVISIONING_PROFILE_SPECIFIER = "LotoDom-dist-profile";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";

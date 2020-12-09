@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-  Image, Text, TouchableOpacity, View
+  Image, Text, TouchableOpacity, View, Dimensions
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import I18n from 'react-native-i18n';
@@ -53,17 +53,27 @@ const styles = {
     marginRight: Metrics.marginDefault
   },
   navigationImageSmall: {
-    height: Metrics.navigationBarHeight - Metrics.statusBarHeight / 2 - Metrics.paddingDefault,
-    width: (Metrics.navigationBarHeight - Metrics.statusBarHeight / 2 - Metrics.paddingDefault) 
-            * CONFIG.VIEW_OPTIONS.LAYOUTS.LOGO_ASPECT_RATIO
+    height:
+      Dimensions.get('window').width > 360
+      ? Metrics.navigationBarHeight - Metrics.statusBarHeight / 2 - Metrics.paddingDefault
+      : Metrics.navigationBarHeight - Metrics.statusBarHeight - Metrics.paddingDefault,
+    marginTop: Dimensions.get('window').width > 360 ? 0 : 10,
+    width:
+      Dimensions.get('window').width > 360
+      ? (Metrics.navigationBarHeight - Metrics.statusBarHeight / 2 - Metrics.paddingDefault) 
+          * CONFIG.VIEW_OPTIONS.LAYOUTS.LOGO_ASPECT_RATIO
+      : (Metrics.navigationBarHeight - Metrics.statusBarHeight - Metrics.paddingDefault) 
+          * CONFIG.VIEW_OPTIONS.LAYOUTS.LOGO_ASPECT_RATIO
   },
   navigationContent: {
 
   },
   navigationText: {
     color: Colors.navigationText,
-    fontSize: Fonts.size.h6,
-    fontWeight: 'bold'
+    fontSize: Dimensions.get('window').width > 360 ? Fonts.size.h6 : Fonts.size.default,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    width: Dimensions.get('window').width > 360 ? 'auto' : 100
   },
   navigationDescription: {
     flexDirection: 'row'
