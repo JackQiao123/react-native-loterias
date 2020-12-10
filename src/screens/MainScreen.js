@@ -6,10 +6,8 @@ import {
 
 import Drawer from 'react-native-drawer';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { 
-  InterstitialAd, AdEventType, BannerAd, BannerAdSize 
-} from '@react-native-firebase/admob';
 
+import firebase from 'react-native-firebase';
 import { increaseRewarded } from '../actions/global';
 import TreeView from '../components/general/TreeView';
 import NavigationBar from '../components/custom/NavigationBar';
@@ -130,11 +128,6 @@ class MainScreen extends Component {
     this.setState({ loadingRefreshIni: true });
     const ini = await Api.getIni();
     if (!this.unmounted) {
-      // if (ini) {
-      //   const menuListData = AppHelper.getMenuList(ini);
-      //   this.drawerContent.updateDataById(menuListData);
-      //   this.drawerContent.selectNode(this.drawerContent.getSelectedNode(), { trigger: false, toggle: false });
-      // }
       this.setState({ loadingRefreshIni: false });
       if (this.currentScreen && this.currentScreen.refresh) {
         this.currentScreen.refresh();
@@ -182,20 +175,23 @@ class MainScreen extends Component {
   }
 
   requestInterstitial() {
-    this.interstitial = InterstitialAd.createForAdRequest(CONFIG.ADMOB.SECRETS.INTERSTITIAL, {
-      requestNonPersonalizedAdsOnly: true
-    });
+    this.interstitial = firebase.admob().interstitial(CONFIG.ADMOB.SECRETS.INTERSTITIAL);
   }
 
   showInterstitial() {
     if (this.interstitial) {
-      this.interstitial.onAdEvent((type, error) => {
-        if (type === AdEventType.LOADED) {
-          this.interstitial.show();
-        }
+      const AdRequest = firebase.admob.AdRequest;
+      const request = new AdRequest();
+
+      this.interstitial.loadAd(request.build());
+
+      this.interstitial.on('onAdLoaded', () => {
+        this.interstitial.show();
       });
-  
-      this.interstitial.load();
+
+      if (this.interstitial.isLoaded()) {
+        this.interstitial.show();
+      }
     }
   }
 
@@ -321,6 +317,10 @@ class MainScreen extends Component {
   }
 
   render() {
+    const Banner = firebase.admob.Banner;
+    const AdRequest = firebase.admob.AdRequest;
+    const request = new AdRequest();
+
     const drawerContent = (
       <TreeView
         data={this.menuData}
@@ -352,12 +352,10 @@ class MainScreen extends Component {
           <View style={Styles.container}>
             {this.state.menuItem === null ? CommonWidget.renderActivityIndicator() : this.renderScreen()}
           </View>
-          <BannerAd
+          <Banner
             unitId={CONFIG.ADMOB.SECRETS.BANNER}
-            size={BannerAdSize.SMART_BANNER}
-            requestOptions={{
-              requestNonPersonalizedAdsOnly: true,
-            }}
+            size={'SMART_BANNER'}
+            request={request.build()}
           />
         </Drawer>
       </View>
