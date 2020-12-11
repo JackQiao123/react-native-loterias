@@ -176,19 +176,19 @@ class MainScreen extends Component {
 
   requestInterstitial() {
     this.interstitial = firebase.admob().interstitial(CONFIG.ADMOB.SECRETS.INTERSTITIAL);
+
+    const AdRequest = firebase.admob.AdRequest;
+    const request = new AdRequest();
+
+    this.interstitial.loadAd(request.build());
+
+    this.interstitial.on('onAdClosed', () => {
+      this.requestInterstitial();
+    });
   }
 
   showInterstitial() {
     if (this.interstitial) {
-      const AdRequest = firebase.admob.AdRequest;
-      const request = new AdRequest();
-
-      this.interstitial.loadAd(request.build());
-
-      this.interstitial.on('onAdLoaded', () => {
-        this.interstitial.show();
-      });
-
       if (this.interstitial.isLoaded()) {
         this.interstitial.show();
       }
