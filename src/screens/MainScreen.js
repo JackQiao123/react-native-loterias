@@ -84,17 +84,21 @@ class MainScreen extends Component {
   }
 
   onMenuPress(node) {
-    this.drawerContent.selectNode(node, { trigger: true, toggle: false });
+    if (this.drawerContent) {
+      this.drawerContent.selectNode(node, { trigger: true, toggle: false });
+    }
   }
 
   onMenuBackPress(node) {
-    if (node.parentNode) {
+    if (node.parentNode && this.drawerContent) {
       this.drawerContent.selectNode(node.parentNode, { trigger: true, toggle: false });
     }
   }
 
   onHomePress() {
-    this.drawerContent.selectNode(this.drawerContent.getRootNode());
+    if (this.drawerContent) {
+      this.drawerContent.selectNode(this.drawerContent.getRootNode());
+    }
   }
 
 
